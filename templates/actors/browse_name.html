@@ -1,0 +1,15 @@
+<div style="margin-top:70px; margin-left:180px;"><p><a href="http://minkoff.webfactional.com/oscars/actors/">Home</a> | <a href="http://minkoff.webfactional.com/oscars/actors/browse_name.html">Browse actors by name</a> | <a href="http://minkoff.webfactional.com/oscars/actors/browse_age.html">Browse actors by ages when award won </a></div>
+
+<div style="margin-top:40px; margin-left:180px;"><h2>Browse actors by name to learn more about their Academy Award wins.</h2>
+
+	
+	{% if latest_actor_name_list %}
+	    <ol>
+	    {% for actor in latest_actor_name_list %}
+	       <li><a href="http://minkoff.webfactional.com/oscars/actors/{{actor.id}}">{{actor.actor_last}}, {{actor.actor_first}} ({{actor.award_age}})</a></li></br>
+	    {% endfor %}
+	    </ol>
+	{% else %}
+	    <p>No actors are available.</p>
+	{% endif %}
+	

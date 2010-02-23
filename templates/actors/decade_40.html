@@ -1,0 +1,14 @@
+<div style="margin-top:70px; margin-left:180px;"><p><a href="http://minkoff.webfactional.com/oscars/actors/">Home</a> | <a href="http://minkoff.webfactional.com/oscars/actors/browse_name.html">Browse actors by name</a> | <a href="http://minkoff.webfactional.com/oscars/actors/browse_age.html">Browse actors by ages when award won </a></div>
+
+<div style="margin-top:40px; margin-left:180px;"><h2>Actors who received Academy Awards in their 40s:</h2>
+
+{% if latest_40actor_list %}
+    <ol>
+    {% for actor in latest_40actor_list %}
+        <li><a href="http://minkoff.webfactional.com/oscars/actors/{{actor.id}}">{{actor.actor_first}} {{actor.actor_last}}</a> ({{actor.award_age}})</li></br>
+    {% endfor %}
+    </ol>
+{% else %}
+    <p>No actors are available.</p>
+{% endif %}
+</div>

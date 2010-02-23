@@ -1,0 +1,63 @@
+<html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+    
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1', {'packages':['barchart']});
+      
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+	MyVisualization.prototype.onclick = function(rowIndex) {
+	  this.highlightRow(this.selectedRow, false); // Clear previous selection
+	  this.highlightRow(rowIndex, true); // Highlight new selection
+
+	  // Save the selected row index in case getSelection is called.
+	  this.selectedRow = rowIndex;
+
+	  // Fire a select event.
+	  google.visualization.events.trigger(this, 'select', {});
+	};
+
+
+      
+      // Callback that creates and populates a data table, 
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+
+      // Create our data table.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Task');
+        data.addColumn('number', 'Number of actors:');
+        data.addRows([
+          ['Children', 1],
+          ['20s', 12],
+          ['30s', 27],
+          ['40s', 21],
+          ['50s', 5],
+          ['60s', 7],
+          ['70s', 3]
+        ]);
+	
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, {width: 420, height: 240, is3D: true, legend: 'none', title: 'Age of actors when they won Academy Awards from 1990-2008'});
+	myClickHandler();
+      }
+    </script>
+  </head>
+
+  <body>
+	<h1 style="text-align:center">Age and the Academy Awards</h1>
+	<div style="margin-left: 10%; margin-right:80px"><p>As the Academy Awards approach this year, with more movies nominated than ever before, the film-loving community celebrates a diverse range of talent.  But in the past 20 years, how have the acting awards been distributed across ages?  For a closer look, explore the database by browsing by name or the decades of life actors were in when they were awarded best and supporting actor and actress awards.</p>
+</div>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div" style="margin-left:10%; float:left"></div>
+<div style="margin-left:50%; position:absolute; margin-top:24px; background-color:#D4D4D4"><p style="text-align:center"><a href="http://minkoff.webfactional.com/oscars/actors/browse_name.html">Browse by actor name</a></p>------------------------------------<p style="text-align:center"><a href="http://minkoff.webfactional.com/oscars/actors/browse_age.html">Browse by age of actor</a></div>
+	<div style="margin-left: 10%; margin-right:80px; margin-top:300px">	<p>This is an ongoing project, with additional features and design modifications coming down the pipeline.  If you have any questions, comments or suggestions, please <a href="mailto:meminkoff@gmail.com">send me an email.</a></p><p>This site is the work of <a href="http://www.michelleminkoff.com">Michelle Minkoff</a>, a graduate journalism student at the <a href="http://www.medill.northwestern.edu">Medill School of Journalism</a> at <a href="http://www.northwestern.edu">Northwestern University.</a></p>
+		<p>Data used for this application comes from the <a href="http://awardsdatabase.oscars.org/ampas_awards/BasicSearchInput.jsp">Academy of Motion Picture Arts and Sciences</a> and the <a href="http://www.imdb.com/">Internet Movie Database</a>.
+</div>
