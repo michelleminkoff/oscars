@@ -1,6 +1,12 @@
-<div style="margin-top:70px; margin-left:180px;"><p><a href="http://minkoff.webfactional.com/oscars/actors/">Home</a> | <a href="http://minkoff.webfactional.com/oscars/actors/browse_name.html">Browse actors by name</a> | <a href="http://minkoff.webfactional.com/oscars/actors/browse_age.html">Browse actors by ages when award won </a></div>
+<html>
+<head>
+<title>Age and the Academy Awards: {{actor.actor_first}} {{actor.actor_last}}</title>
+</head>	
+<body><div style="margin-top:70px; margin-left:180px;"><p><a href="http://minkoff.webfactional.com/oscars/actors/">Home</a> | <a href="http://minkoff.webfactional.com/oscars/actors/browse_name.html">Browse actors by name</a> | <a href="http://minkoff.webfactional.com/oscars/actors/browse_age.html">Browse actors by ages when award won </a></div>
 <div style="margin-right:200px; margin-top:70px; float:right; padding-left:50px "><img src="http://michelleminkoff.com/oscar/oscar.jpg" width="262px"><br/>
 	<p style="font-size:11">Courtesy of Academy of Motion Picture Arts and Sciences.</p></div>
 
 <div style="margin-left:180px; margin-top:80px"><p style="font-size:32"><a href="{{actor.imdb_actor}}">{{ actor.actor_first}} {{actor.actor_last}}</a><strong> </p><p style="font-size:28">{{actor.award_age}}-years-old when award was given</strong></p>
 <p style="font-size:18">Won the "Best {{actor.award}}" award in {{actor.award_year}} for playing {{actor.character}} in <a href="{{actor.imdb_movie}}"><strong>{{actor.movie.strip}}</strong>.</a></p></div>
+</body>
+</html>
